@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELOJ DIGITAL</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <SCRipt>
+  function showTime() {
+        let date = new Date();
+        let hour = date.getHours();
+        let hour12 = (hour >= 12) ? "PM" : "AM";
+        hour = (hour % 12) || 12;
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+        hour = (hour < 10) ? "0" + hour : hour;
+        min = (min < 10) ? "0" + min : min;
+        sec = (sec < 10) ? "0" + sec : sec;
+        let time = hour + ":" + min + ":" + sec + " " + hour12;
+        document.querySelector(".clock").innerText = time;
+      }
+      setInterval(showTime, 1000);
+
+    </SCRipt>
+</head>
+<body onload="startTime()">
+    <div class="clock-container">
+		<div class="clock">
+			<span id="hours">00</span> :
+			<span id="minutes">00</span> :
+			<span id="seconds">00</span>
+		</div>
+	</div>
+</body>
+</html>
